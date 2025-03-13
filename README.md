@@ -98,7 +98,7 @@ export function loadConfig() {
 Create test files in the `test` directory. Here's an example:
 
 ```js
-import {Suite, Test, Setup, Teardown} from 'https://cdn.jsdelivr.net/npm/k6-report-portal@1.0.1/lib/index.min.js';
+import {Suite, Test, Setup, Teardown} from 'https://cdn.jsdelivr.net/npm/k6-report-portal@1.0.2/lib/index.min.js';
 
 @Suite({
     name: 'Example Suite',
@@ -112,7 +112,7 @@ class ExampleTests {
         features: ['policies'],
         service: 'AUTHZ'
     })
-    async exampleTest({testId, logger}) {
+    async exampleTest(data, {testId, logger}) {
         logger.info(testId, "Test execution");
     }
 }
@@ -125,7 +125,7 @@ export default new ExampleTests();
 Create a `main.js` file in your project root:
 
 ```js
-import {runSuites, createReporter} from 'https://cdn.jsdelivr.net/npm/k6-report-portal@1.0.1/lib/index.min.js';
+import {runSuites, createReporter} from 'https://cdn.jsdelivr.net/npm/k6-report-portal@1.0.2/lib/index.min.js';
 import {loadConfig} from './src/config.js';
 // !IMPORTANT: Import test suites from the build directory
 import exampleTest from './build/test/exampleTest.js';
@@ -164,7 +164,7 @@ export default async function (config) {
 Execute your tests with:
 
 ```bash
-npm test:local
+npm run test:local
 ```
 
 ## Available Decorators
