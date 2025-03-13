@@ -1,0 +1,24 @@
+{
+  "name": "authz-integration-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "pretest": "babel test --out-dir build/test",
+    "test": "k6 run main.js",
+    "test:local": "npm run pretest && dotenv -- k6 run -e NODE_ENV=development main.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.15.8",
+    "@babel/plugin-proposal-decorators": "^7.15.8",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.15.8",
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^8.0.0"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "k6": "^0.0.0",
+    "path": "^0.12.7"
+  }
+}
