@@ -14,7 +14,7 @@ export function loadConfig() {
             {'key': 'component', 'value': __ENV.RP_COMPONENT},
             {'value': 'automated'}
         ],
-        debug: isDev
+        debug: __ENV.NODE_ENV === 'development',
     };
 
     // Log to verify required fields are set
