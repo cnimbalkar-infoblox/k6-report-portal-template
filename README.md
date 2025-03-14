@@ -98,13 +98,18 @@ export function loadConfig() {
 Create test files in the `test` directory. Here's an example:
 
 ```js
-import {Suite, Test, Setup, Teardown} from 'https://cdn.jsdelivr.net/npm/k6-report-portal@1.0.2/lib/index.min.js';
+import {Suite, Test, Setup, Teardown} from 'https://cdn.jsdelivr.net/npm/k6-report-portal@1.0.4/lib/index.min.js';
 
 @Suite({
     name: 'Example Suite',
     description: 'Test suite description'
 })
 class ExampleTests {
+    @Setup()
+    async setup({testId, logger, baseURL}) {
+        return {}
+    }
+
     @Test({
         name: 'Example Test',
         description: 'Test description',
@@ -115,9 +120,10 @@ class ExampleTests {
     async exampleTest(data, {testId, logger}) {
         logger.info(testId, "Test execution");
     }
-}
 
-export default new ExampleTests();
+    @Teardown()
+    async setup(data, {testId, logger, baseURL}) {}
+}
 ```
 
 ## Test Entry Point
